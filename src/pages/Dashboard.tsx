@@ -8,7 +8,8 @@ import {
   Stethoscope, 
   Activity, 
   User, 
-  RotateCcw 
+  RotateCcw,
+  ChevronDown
 } from 'lucide-react';
 import {
   ResponsiveContainer,
@@ -139,58 +140,97 @@ export default function Dashboard({ onGenerateReport, isGenerating }: DashboardP
             Healthcare Analytics Platform
           </h1>
           <p className="text-xs font-semibold text-slate-400 font-sans tracking-wide">
-            Generate clinical insights using natural language prompts.
+            Comprehensive real-time overview of medical panel indicators and operations.
           </p>
         </div>
       </div>
 
-      {/* Primary Prompt Console */}
-      <PromptBox 
-        onSubmit={onGenerateReport} 
-        isGenerating={isGenerating} 
-      />
-
       {/* Filter Toolbar Section (Exactly as seen in Image 8) */}
-      <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-3xs flex flex-wrap items-center gap-3">
+      <div className="bg-white border border-slate-200/80 rounded-2xl p-4 shadow-3xs flex flex-wrap items-stretch gap-4 select-none">
         {/* Date Range Filter */}
-        <div className="flex items-center gap-2 px-3 py-2 bg-[#f8fafc] rounded-xl border border-slate-100 text-xs font-bold text-slate-500 cursor-pointer hover:bg-slate-100/50 transition-colors">
-          <Calendar className="w-3.5 h-3.5 text-slate-400" />
-          <span>DATE RANGE:</span>
-          <span className="text-slate-800 font-extrabold">{dateRange}</span>
+        <div className="flex items-center gap-3 px-4 py-2.5 bg-[#f8fafc] rounded-2xl border border-slate-100 text-xs text-slate-500 cursor-pointer hover:bg-slate-100/50 transition-all min-w-[170px] flex-1">
+          <div className="w-9 h-9 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 border border-teal-100/50">
+            <Calendar className="w-4 h-4 text-teal-500" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <span className="text-[10px] font-bold text-slate-400 block uppercase tracking-wider leading-none mb-1">
+              DATE RANGE
+            </span>
+            <div className="flex items-center justify-between gap-1.5">
+              <span className="text-xs font-semibold text-slate-700 truncate">{dateRange}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+            </div>
+          </div>
         </div>
 
         {/* Department Filter */}
-        <div className="flex items-center gap-2 px-3 py-2 bg-[#f8fafc] rounded-xl border border-slate-100 text-xs font-bold text-slate-500 cursor-pointer hover:bg-slate-100/50 transition-colors">
-          <Building2 className="w-3.5 h-3.5 text-slate-400" />
-          <span>DEPARTMENT:</span>
-          <span className="text-slate-800 font-extrabold">{department}</span>
+        <div className="flex items-center gap-3 px-4 py-2.5 bg-[#f8fafc] rounded-2xl border border-slate-100 text-xs text-slate-500 cursor-pointer hover:bg-slate-100/50 transition-all min-w-[170px] flex-1">
+          <div className="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 border border-blue-100/50">
+            <Building2 className="w-4 h-4 text-blue-500" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <span className="text-[10px] font-bold text-slate-400 block uppercase tracking-wider leading-none mb-1">
+              DEPARTMENT
+            </span>
+            <div className="flex items-center justify-between gap-1.5">
+              <span className="text-xs font-semibold text-slate-700 truncate">{department}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+            </div>
+          </div>
         </div>
 
         {/* Provider Filter */}
-        <div className="flex items-center gap-2 px-3 py-2 bg-[#f8fafc] rounded-xl border border-slate-100 text-xs font-bold text-slate-500 cursor-pointer hover:bg-slate-100/50 transition-colors">
-          <Stethoscope className="w-3.5 h-3.5 text-slate-400" />
-          <span>PROVIDER:</span>
-          <span className="text-slate-800 font-extrabold">{provider}</span>
+        <div className="flex items-center gap-3 px-4 py-2.5 bg-[#f8fafc] rounded-2xl border border-slate-100 text-xs text-slate-500 cursor-pointer hover:bg-slate-100/50 transition-all min-w-[170px] flex-1">
+          <div className="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center flex-shrink-0 border border-indigo-100/50">
+            <Stethoscope className="w-4 h-4 text-indigo-500" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <span className="text-[10px] font-bold text-slate-400 block uppercase tracking-wider leading-none mb-1">
+              PROVIDER
+            </span>
+            <div className="flex items-center justify-between gap-1.5">
+              <span className="text-xs font-semibold text-slate-700 truncate">{provider}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+            </div>
+          </div>
         </div>
 
         {/* Visit Type Filter */}
-        <div className="flex items-center gap-2 px-3 py-2 bg-[#f8fafc] rounded-xl border border-slate-100 text-xs font-bold text-slate-500 cursor-pointer hover:bg-slate-100/50 transition-colors">
-          <Activity className="w-3.5 h-3.5 text-slate-400" />
-          <span>VISIT TYPE:</span>
-          <span className="text-slate-800 font-extrabold">{visitType}</span>
+        <div className="flex items-center gap-3 px-4 py-2.5 bg-[#f8fafc] rounded-2xl border border-slate-100 text-xs text-slate-500 cursor-pointer hover:bg-slate-100/50 transition-all min-w-[170px] flex-1">
+          <div className="w-9 h-9 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center flex-shrink-0 border border-rose-100/50">
+            <Activity className="w-4 h-4 text-rose-500" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <span className="text-[10px] font-bold text-slate-400 block uppercase tracking-wider leading-none mb-1">
+              VISIT TYPE
+            </span>
+            <div className="flex items-center justify-between gap-1.5">
+              <span className="text-xs font-semibold text-slate-700 truncate">{visitType}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+            </div>
+          </div>
         </div>
 
         {/* Patient Type Filter */}
-        <div className="flex items-center gap-2 px-3 py-2 bg-[#f8fafc] rounded-xl border border-slate-100 text-xs font-bold text-slate-500 cursor-pointer hover:bg-slate-100/50 transition-colors">
-          <User className="w-3.5 h-3.5 text-slate-400" />
-          <span>PATIENT TYPE:</span>
-          <span className="text-slate-800 font-extrabold">{patientType}</span>
+        <div className="flex items-center gap-3 px-4 py-2.5 bg-[#f8fafc] rounded-2xl border border-slate-100 text-xs text-slate-500 cursor-pointer hover:bg-slate-100/50 transition-all min-w-[170px] flex-1">
+          <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0 border border-emerald-100/50">
+            <User className="w-4 h-4 text-emerald-500" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <span className="text-[10px] font-bold text-slate-400 block uppercase tracking-wider leading-none mb-1">
+              PATIENT TYPE
+            </span>
+            <div className="flex items-center justify-between gap-1.5">
+              <span className="text-xs font-semibold text-slate-700 truncate">{patientType}</span>
+              <ChevronDown className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
+            </div>
+          </div>
         </div>
 
         {/* Reset Action */}
         <button 
           onClick={handleResetFilters}
-          className="ml-auto flex items-center gap-1.5 px-3 py-2 border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 rounded-xl text-xs font-bold cursor-pointer transition-colors"
+          className="flex items-center gap-1.5 px-4 py-2.5 border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 rounded-2xl text-xs font-bold cursor-pointer transition-colors shadow-2xs shrink-0 self-center"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>Reset</span>
