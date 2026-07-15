@@ -1,0 +1,6 @@
+{
+  "name": "AI-Powered Healthcare Analytics Platform",
+  "description": "Generate clinical reports and insights from EMR data using Natural Language prompts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
